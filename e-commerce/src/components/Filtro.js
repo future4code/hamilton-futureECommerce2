@@ -15,7 +15,12 @@ class Filtro extends React.Component {
 
     render() {
         return (
-            <ContainerFiltro>Eu sou o Filtro!</ContainerFiltro>
+            <ContainerFiltro>
+                <span>Filtro!</span>
+                <input type = "Number"/>
+                <input type = "Number"/>
+                <input type = "text"/>
+                </ContainerFiltro>
         )
     }
 }

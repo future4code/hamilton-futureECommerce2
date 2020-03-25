@@ -23,7 +23,9 @@ class App extends React.Component {
       <div>
         <Header>
           <h1>Future E-commerce</h1>
-          <Carrinho></Carrinho>
+          <Carrinho>
+
+          </Carrinho>
         </Header>
 
         <Carrossel>
@@ -35,7 +37,7 @@ class App extends React.Component {
         </Filtro>
 
         <ListaDeProdutos>
-
+          
         </ListaDeProdutos>
 
       </div>

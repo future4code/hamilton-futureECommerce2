@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import Produtos from './Produtos'
 
 class Carrinho extends React.Component {
     constructor(props) {
@@ -8,7 +9,9 @@ class Carrinho extends React.Component {
 
     render() {
         return (
-            <div>Eu sou o Carrinho!</div>
+            <div>Eu sou o Carrinho!
+                <p>{this.props.valor}</p>
+            </div>
         )
     }
 }

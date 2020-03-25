@@ -19,20 +19,82 @@ const ContainerListaDeProdutos = styled.div `
 class ListaDeProdutos extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            produtos: [
+                {
+                    id: Date.now(),
+                    nome: "Camiseta 1",
+                    valor: 39.90,
+                    imagem: require("../Imagens/Camiseta1.png")
+                },
+                {
+                    id: Date.now(),
+                    nome: "Camiseta 2",
+                    valor: 39.90,
+                    imagem: require("../Imagens/Camiseta2.png")
+                },
+                {
+                    id: Date.now(),
+                    nome: "Camiseta 3",
+                    valor: 39.90,
+                    imagem: require("../Imagens/Camiseta3.png")
+                },
+                {
+                    id: Date.now(),
+                    nome: "Camiseta 4",
+                    valor: 39.90,
+                    imagem: require("../Imagens/Camiseta4.png")
+                },
+                {
+                    id: Date.now(),
+                    nome: "Camiseta 5",
+                    valor: 39.90,
+                    imagem: require("../Imagens/Camiseta5.png")
+                },
+                {
+                    id: Date.now(),
+                    nome: "Camiseta 6",
+                    valor: 39.90,
+                    imagem: require("../Imagens/Camiseta6.png")
+                },
+                {
+                    id: Date.now(),
+                    nome: "Camiseta 7",
+                    valor: 39.90,
+                    imagem: require("../Imagens/Camiseta1.png")
+                },
+                {
+                    id: Date.now(),
+                    nome: "Camiseta 8",
+                    valor: 39.90,
+                    imagem: require("../Imagens/Camiseta1.png")
+                },
+                {
+                    id: Date.now(),
+                    nome: "Camiseta 9",
+                    valor: 39.90,
+                    imagem: require("../Imagens/Camiseta1.png")
+                },        
+            ]
+        }
     }
 
     render() {
+        const divProdutos = this.state.produtos.map(produtos => {
+            return (
+                <Produtos
+                imagem = {produtos.imagem}
+                nome = {produtos.nome}
+                preco = {produtos.valor}
+                key = {produtos.id}
+                />
+            )    
+        })
+
         return (
             <ContainerListaDeProdutos>
-                <Produtos preco = {"30"}/>
-                <Produtos preco = {"49"}/>
-                <Produtos preco = {"59"}/>
-                <Produtos preco = {"49"}/>
-                <Produtos preco = {"79"}/>
-                <Produtos preco = {"30"}/>
-                <Produtos preco = {"49"}/>
-                <Produtos preco = {"29"}/>
-                <Produtos preco = {"19"}/>
+                {divProdutos}
             </ContainerListaDeProdutos>
         )
     }
