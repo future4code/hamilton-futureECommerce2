@@ -38,7 +38,8 @@ const ContainerCarrossel = styled.div `
 `
 
 const Imagem = styled.img `
-
+    height: 100px;
+    width: 100px;
 `
 
 class Carrossel extends React.Component {
@@ -49,11 +50,11 @@ class Carrossel extends React.Component {
     render() {
         return (
             <ContainerCarrossel>
-                <figure class="slider-principal">
+                <figure className="slider-principal">
                     <Imagem src= {require("../Imagens/Camiseta1.png")} />
-                    <Imagem src= {require("../Imagens/Camiseta1.png")} />
-                    <Imagem src= {require("../Imagens/Camiseta1.png")} />
-                    <Imagem src= {require("../Imagens/Camiseta1.png")} />
+                    <Imagem src= {require("../Imagens/Camiseta2.png")} />
+                    <Imagem src= {require("../Imagens/Camiseta3.png")} />
+                    <Imagem src= {require("../Imagens/Camiseta4.png")} />
                 </figure>
             </ContainerCarrossel>
         )

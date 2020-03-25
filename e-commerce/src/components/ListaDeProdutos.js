@@ -23,55 +23,55 @@ class ListaDeProdutos extends React.Component {
         this.state = {
             produtos: [
                 {
-                    id: Date.now(),
+                    id: 1,
                     nome: "Camiseta 1",
                     valor: 39.90,
                     imagem: require("../Imagens/Camiseta1.png")
                 },
                 {
-                    id: Date.now(),
+                    id: 2,
                     nome: "Camiseta 2",
                     valor: 39.90,
                     imagem: require("../Imagens/Camiseta2.png")
                 },
                 {
-                    id: Date.now(),
+                    id: 3,
                     nome: "Camiseta 3",
                     valor: 39.90,
                     imagem: require("../Imagens/Camiseta3.png")
                 },
                 {
-                    id: Date.now(),
+                    id: 4,
                     nome: "Camiseta 4",
                     valor: 39.90,
                     imagem: require("../Imagens/Camiseta4.png")
                 },
                 {
-                    id: Date.now(),
+                    id: 5,
                     nome: "Camiseta 5",
                     valor: 39.90,
                     imagem: require("../Imagens/Camiseta5.png")
                 },
                 {
-                    id: Date.now(),
+                    id: 6,
                     nome: "Camiseta 6",
                     valor: 39.90,
                     imagem: require("../Imagens/Camiseta6.png")
                 },
                 {
-                    id: Date.now(),
+                    id: 7,
                     nome: "Camiseta 7",
                     valor: 39.90,
                     imagem: require("../Imagens/Camiseta1.png")
                 },
                 {
-                    id: Date.now(),
+                    id: 8,
                     nome: "Camiseta 8",
                     valor: 39.90,
                     imagem: require("../Imagens/Camiseta1.png")
                 },
                 {
-                    id: Date.now(),
+                    id: 9,
                     nome: "Camiseta 9",
                     valor: 39.90,
                     imagem: require("../Imagens/Camiseta1.png")
