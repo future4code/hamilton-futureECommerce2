@@ -13,17 +13,25 @@ class Filtro extends React.Component {
         super(props)
 
         this.state = {
-            minValue : 0,
-            maxValue : Infinity
-        }
+            valorMin: "",
+            valorMax: ""
+          }
     }
 
     onChangeMin = (event) => {
-        this.setState({minValue: event.target.value})
-    }
+        this.setState({valorMin: event.target.value})
+      }
 
     onChangeMax = (event) => {
-        this.setState({maxValue: event.target.value})
+        this.setState({valorMax: event.target.value})
+      }
+
+    onClickValores = () => {
+        this.props.funcao(this.state.valorMin, this.state.valorMax)
+    }
+
+    onClickReset = () => {
+        this.props.funcao(0, 9999999999)
     }
 
     render() {
@@ -33,7 +41,9 @@ class Filtro extends React.Component {
                 <input type= "Number" onChange = {this.onChangeMin} placeholder = {"minimo"}/>
                 <input type= "Number" onChange = {this.onChangeMax} placeholder = {"maximo"}/>
                 <input type= "text"/>
-                </ContainerFiltro>
+                <button onClick= {this.onClickValores}>Me aperta</button>
+                <button onClick= {this.onClickReset}>Reset</button>
+            </ContainerFiltro>
         )
     }
 }

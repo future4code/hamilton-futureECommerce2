@@ -80,23 +80,9 @@ class ListaDeProdutos extends React.Component {
         }
     }
 
-    render() {
-        
+    render() {        
         const produtosFiltrados = this.state.produtos.filter(produto => {
-            // if(produto.valor >= this.props.min){
-            //     return true
-            // } else {
-            //     return false
-            // }
-            return produto.valor >= this.props.min
-
-        }).filter(produto => {
-            // if(produto.valor <= this.props.max){
-            //     return true
-            // } else {
-            //     return false
-            // }
-            return produto.valor <= this.props.max
+            return produto.valor >= this.props.min && produto.valor <= this.props.max 
         })
    
         return (
