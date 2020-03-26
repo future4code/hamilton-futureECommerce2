@@ -25,13 +25,13 @@ class ListaDeProdutos extends React.Component {
                 {
                     id: 1,
                     nome: "Camiseta 1",
-                    valor: 39.90,
+                    valor: 19.90,
                     imagem: require("../Imagens/Camiseta1.png")
                 },
                 {
                     id: 2,
                     nome: "Camiseta 2",
-                    valor: 39.90,
+                    valor: 29.90,
                     imagem: require("../Imagens/Camiseta2.png")
                 },
                 {
@@ -43,58 +43,60 @@ class ListaDeProdutos extends React.Component {
                 {
                     id: 4,
                     nome: "Camiseta 4",
-                    valor: 39.90,
+                    valor: 49.90,
                     imagem: require("../Imagens/Camiseta4.png")
                 },
                 {
                     id: 5,
                     nome: "Camiseta 5",
-                    valor: 39.90,
+                    valor: 59.90,
                     imagem: require("../Imagens/Camiseta5.png")
                 },
                 {
                     id: 6,
                     nome: "Camiseta 6",
-                    valor: 39.90,
+                    valor: 69.90,
                     imagem: require("../Imagens/Camiseta6.png")
                 },
                 {
                     id: 7,
                     nome: "Camiseta 7",
-                    valor: 39.90,
+                    valor: 79.90,
                     imagem: require("../Imagens/Camiseta1.png")
                 },
                 {
                     id: 8,
                     nome: "Camiseta 8",
-                    valor: 39.90,
+                    valor: 89.90,
                     imagem: require("../Imagens/Camiseta1.png")
                 },
                 {
                     id: 9,
                     nome: "Camiseta 9",
-                    valor: 39.90,
+                    valor: 99.90,
                     imagem: require("../Imagens/Camiseta1.png")
                 },        
             ]
         }
     }
 
-    render() {
-        const divProdutos = this.state.produtos.map(produtos => {
-            return (
+    render() {        
+        const produtosFiltrados = this.state.produtos.filter(produto => {
+            return produto.valor >= this.props.min && produto.valor <= this.props.max 
+        })
+   
+        return (
+            <ContainerListaDeProdutos>
+                {produtosFiltrados.map(produtos => {
+                return (
                 <Produtos
                 imagem = {produtos.imagem}
                 nome = {produtos.nome}
                 preco = {produtos.valor}
                 key = {produtos.id}
                 />
-            )    
-        })
-
-        return (
-            <ContainerListaDeProdutos>
-                {divProdutos}
+            )   
+        })}
             </ContainerListaDeProdutos>
         )
     }

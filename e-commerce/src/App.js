@@ -15,10 +15,43 @@ const Header = styled.header `
 class App extends React.Component {
   constructor(props) {
     super(props)
+    
+    this.state = {
+      valorMin: 0,
+      valorMax: 9999999999
+    }
+  }
 
+  alteraValores = (valor1, valor2) => {
+    if(valor1 !== "" && valor2 === "")
+    {
+      this.setState({
+        valorMin: valor1
+      })
+    }
+    else if (valor1 === "" && valor2 !== "")
+    {
+      this.setState({
+        valorMax: valor2
+      })
+    }
+    else if (valor1 === "" && valor2 === "")
+    {
+      this.setState({
+        valorMin: 0,
+        valorMax: 9999999999
+      })
+    }
+    else {
+      this.setState({
+        valorMin: valor1,
+        valorMax: valor2
+      })
+    }
   }
 
   render() {
+
     return (
       <div>
         <Header>
@@ -32,11 +65,11 @@ class App extends React.Component {
 
         </Carrossel>
 
-        <Filtro>
+        <Filtro funcao = {this.alteraValores}>
 
         </Filtro>
 
-        <ListaDeProdutos>
+        <ListaDeProdutos min = {this.state.valorMin} max = {this.state.valorMax}>
           
         </ListaDeProdutos>
 
