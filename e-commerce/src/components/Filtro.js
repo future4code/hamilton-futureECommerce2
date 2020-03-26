@@ -11,15 +11,28 @@ const ContainerFiltro = styled.div `
 class Filtro extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            minValue : 0,
+            maxValue : Infinity
+        }
+    }
+
+    onChangeMin = (event) => {
+        this.setState({minValue: event.target.value})
+    }
+
+    onChangeMax = (event) => {
+        this.setState({maxValue: event.target.value})
     }
 
     render() {
         return (
             <ContainerFiltro>
-                <span>Filtro!</span>
-                <input type = "Number"/>
-                <input type = "Number"/>
-                <input type = "text"/>
+                <span>Filtro</span>
+                <input type= "Number" onChange = {this.onChangeMin} placeholder = {"minimo"}/>
+                <input type= "Number" onChange = {this.onChangeMax} placeholder = {"maximo"}/>
+                <input type= "text"/>
                 </ContainerFiltro>
         )
     }

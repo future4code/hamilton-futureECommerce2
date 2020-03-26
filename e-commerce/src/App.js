@@ -16,6 +16,10 @@ class App extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      valorMin : 1,
+      valorMax : 100
+    }
   }
 
   render() {
@@ -36,7 +40,7 @@ class App extends React.Component {
 
         </Filtro>
 
-        <ListaDeProdutos>
+        <ListaDeProdutos min = {this.state.valorMin} max = {this.state.valorMax}>
           
         </ListaDeProdutos>
 
