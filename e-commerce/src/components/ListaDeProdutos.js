@@ -82,7 +82,9 @@ class ListaDeProdutos extends React.Component {
 
     render() {        
         const produtosFiltrados = this.state.produtos.filter(produto => {
-            return produto.valor >= this.props.min && produto.valor <= this.props.max 
+            return produto.valor >= this.props.min && produto.valor <= this.props.max && produto.nome.includes(this.props.nome)
+            // Tenho que tentar entender o que eu fiz aqui, mas deu certo :P
+            // Agora também filtra pelo nome do produto
         })
    
         return (
