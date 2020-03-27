@@ -14,7 +14,9 @@ class Filtro extends React.Component {
 
         this.state = {
             valorMin: "",
-            valorMax: ""
+            valorMax: "",
+            valorInput: "",
+            filtroSelect: ""
           }
     }
 
@@ -26,23 +28,47 @@ class Filtro extends React.Component {
         this.setState({valorMax: event.target.value})
       }
 
+    // Transporta os valores para as funções via props
     onClickValores = () => {
-        this.props.funcao(this.state.valorMin, this.state.valorMax)
+        this.props.funcao(this.state.valorMin, this.state.valorMax) // Parâmetros para a função alteraValores via props no componente pai
+        this.props.funcao2(this.state.valorInput) // // Parâmetro para a função alteraInput via props no componente pai (app.js)
     }
 
+    // Faz o botão resetar os filtros
     onClickReset = () => {
         this.props.funcao(0, 9999999999)
+        this.props.funcao2("")
+    }
+
+    // Define o valor do estado "valorInput" de acordo com o valor que o usuário digita
+    onChangeInput = (event) => {
+        this.setState({valorInput: event.target.value})  
+    }
+
+    onChangeSelect = (event) => {
+        this.setState({filtroSelect: event.target.value})
+    }
+
+    passaValorSelect = () => {
+        this.props.funcao3(this.state.filtroSelect)
+        console.log(this.state.filtroSelect)
     }
 
     render() {
         return (
             <ContainerFiltro>
                 <span>Filtro</span>
-                <input type= "Number" onChange = {this.onChangeMin} placeholder = {"minimo"}/>
-                <input type= "Number" onChange = {this.onChangeMax} placeholder = {"maximo"}/>
-                <input type= "text"/>
-                <button onClick= {this.onClickValores}>Me aperta</button>
-                <button onClick= {this.onClickReset}>Reset</button>
+                <input type= "Number" onChange = {this.onChangeMin} placeholder = {"Valor mínimo"}/>
+                <input type= "Number" onChange = {this.onChangeMax} placeholder = {"Valor máximo"}/>
+                <input type= "text" onChange = {this.onChangeInput}/>
+                <button onClick= {this.onClickValores}>Filtrar</button>
+                <button onClick= {this.onClickReset}>Resetar filtros</button>
+
+                <select value = {this.state.filtroSelect} onChange = {(this.onChangeSelect, this.passaValorSelect)}>
+                    <option value = "">Ordernar: ------</option>
+                    <option value = "decrescente">Ordenar: valor decrescente</option>
+                    <option value = "crescente">Ordenar: valor crescente</option>
+                </select>
             </ContainerFiltro>
         )
     }

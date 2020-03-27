@@ -11,6 +11,13 @@ const Header = styled.header `
   margin: 0 auto;
   text-align: center;
 `
+const BotaoCarrinho = styled.button `
+
+`
+
+const Icone = styled.img `
+    width: 33px;
+`
 
 class App extends React.Component {
   constructor(props) {
@@ -18,20 +25,25 @@ class App extends React.Component {
     
     this.state = {
       valorMin: 0,
-      valorMax: 9999999999
+      valorMax: 9999999999,
+      valorInput: "",
+      filtroSelect: ""
     }
   }
 
+  // Altera os valores "valorMin" e "valorMax" do estado
   alteraValores = (valor1, valor2) => {
     if(valor1 !== "" && valor2 === "")
     {
       this.setState({
-        valorMin: valor1
+        valorMin: valor1,
+        valorMax: 9999999999
       })
     }
     else if (valor1 === "" && valor2 !== "")
     {
       this.setState({
+        valorMin: 0,
         valorMax: valor2
       })
     }
@@ -50,32 +62,48 @@ class App extends React.Component {
     }
   }
 
+  // Define o valor de "valorInput" no estado e depois passa ele como props "nome" para <ListaDeProdutos>
+  alteraInput = (valorDoInput) => {
+    if(valorDoInput === ""){
+      this.setState({valorDoInput: ""})
+    }
+    this.setState ({valorInput: valorDoInput})
+  }
+
+  alteraOrdem = (valorDoSelect) => {
+    this.setState({filtroSelect: valorDoSelect})
+    console.log(valorDoSelect)
+  }
+
+  chamaDivCarrinho = () => {
+    return <Carrinho/>
+  }
+
   render() {
 
     return (
       <div>
         <Header>
           <h1>Future E-commerce</h1>
-          <Carrinho>
-
-          </Carrinho>
+          <BotaoCarrinho onClick = {this.chamaDivCarrinho}><Icone src= {require("./Imagens/IconCarrinho.svg")}/></BotaoCarrinho>
         </Header>
 
-        <Carrossel>
+        <Carrossel/>
 
-        </Carrossel>
+        <Filtro funcao = {this.alteraValores} funcao2 = {this.alteraInput} funcao3 = {this.alteraOrdem}/>
 
-        <Filtro funcao = {this.alteraValores}>
-
-        </Filtro>
-
-        <ListaDeProdutos min = {this.state.valorMin} max = {this.state.valorMax}>
-          
-        </ListaDeProdutos>
-
+        <ListaDeProdutos nome = {this.state.valorInput} min = {this.state.valorMin} max = {this.state.valorMax}/>
       </div>
     );
   }
 }
 
 export default App;
+
+//>>> FILTRA DO MAIOR PELO MENOR E VICE-VERSA
+
+// Onde começar? Como fazer?
+
+// É melhor ficar no <Filtro> ou na <ListaDeProdutos>?
+
+//>>> FAZER A SEÇÃO DO CARRINHO (float right e hidden)
