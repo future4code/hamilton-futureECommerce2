@@ -8,12 +8,15 @@ const ContainerListaDeProdutos = styled.div `
     grid-template-columns: 1fr 1fr 1fr; 
     border: 1px solid black;
     height: 100%;
-    width: 1400px;
+    max-width: 1400px;
+    min-width: 100%;
     margin: 0 auto;
     grid-gap: 20px;
     justify-items: center;
     padding: 20px;
     box-sizing: border-box;
+    background: white;
+
 `
 
 class ListaDeProdutos extends React.Component {

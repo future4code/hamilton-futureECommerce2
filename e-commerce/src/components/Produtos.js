@@ -7,14 +7,26 @@ const ContainerProdutos = styled.div `
     text-align: center;
     border: 1px solid black;
     height: 100%;
-    width: 400px;
+    max-width: 1400px;
+    min-width: 100%;
+
 `
 const Imagem = styled.img `
     width: 200px;
     height: 200px;
+    margin-top: 15px; 
+
 `
 
 const Button = styled.button `
+    width: 100%;
+    height: 50px;
+    border: transparent;
+    color: white;
+    background: #505150 ;
+    :hover {
+        background: #3D3E3D;
+    }
 
 `
 
