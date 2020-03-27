@@ -12,6 +12,13 @@ const Header = styled.header `
   text-align: center;
 `
 const BotaoCarrinho = styled.button `
+border-radius: 50%;
+width: 73px;
+height: 73px;
+/* margin-right: 4vw; */
+position: fixed;
+right: 8vw;
+bottom: 3vh;
 
 `
 
@@ -27,7 +34,11 @@ class App extends React.Component {
       valorMin: 0,
       valorMax: 9999999999,
       valorInput: "",
-      filtroSelect: ""
+      filtroSelect: "",
+      carrinhoNaTela: false,
+      nomeDoProduto: [],
+      precoTotal: 0
+
     }
   }
 
@@ -70,12 +81,22 @@ class App extends React.Component {
     this.setState ({valorInput: valorDoInput})
   }
 
+  // Altera o valor de "filtroSelect" no estado e depois passa ele como props "ordem" para <ListaDeProdutos>
   alteraOrdem = (valorDoSelect) => {
     this.setState({filtroSelect: valorDoSelect})
   }
 
   chamaDivCarrinho = () => {
-    return <Carrinho/>
+    this.setState({carrinhoNaTela: !this.state.carrinhoNaTela})
+  }
+
+  somaValores = (precos, nome) => {
+    const copiaNomes = [...this.state.nomeDoProduto, nome]
+
+    this.setState({
+      precoTotal: this.state.precoTotal + precos,
+      nomeDoProduto: copiaNomes
+    })
   }
 
   render() {
@@ -84,25 +105,24 @@ class App extends React.Component {
       <div>
         <Header>
           <h1>Future E-commerce</h1>
-          <BotaoCarrinho onClick = {this.chamaDivCarrinho}><Icone src= {require("./Imagens/IconCarrinho.svg")}/></BotaoCarrinho>
         </Header>
 
         <Carrossel/>
 
         <Filtro funcao = {this.alteraValores} funcao2 = {this.alteraInput} funcao3 = {this.alteraOrdem}/>
 
-        <ListaDeProdutos ordem = {this.state.filtroSelect} nome = {this.state.valorInput} min = {this.state.valorMin} max = {this.state.valorMax}/>
+        <ListaDeProdutos precos = {this.somaValores} ordem = {this.state.filtroSelect} nome = {this.state.valorInput} min = {this.state.valorMin} max = {this.state.valorMax}/>
+
+        <BotaoCarrinho onClick = {this.chamaDivCarrinho}><Icone src= {require("./Imagens/IconCarrinho.svg")}/></BotaoCarrinho>
+
+        {this.state.carrinhoNaTela ? (
+          <Carrinho valorTotal = {this.state.precoTotal} nomeProduto = {this.state.nomeDoProduto} valorUn = {this.state.precoIndividual}/>
+        ): (
+          false
+        )}
       </div>
     );
   }
 }
 
 export default App;
-
-//>>> FILTRA DO MAIOR PELO MENOR E VICE-VERSA
-
-// Onde começar? Como fazer?
-
-// É melhor ficar no <Filtro> ou na <ListaDeProdutos>?
-
-//>>> FAZER A SEÇÃO DO CARRINHO (float right e hidden)

@@ -24,62 +24,63 @@ class ListaDeProdutos extends React.Component {
             produtos: [
                 {
                     id: 1,
-                    nome: "Camiseta 1",
-                    valor: 19.90,
-                    imagem: require("../Imagens/Camiseta1.png")
+                    nome: "Camiseta 'Miau no Mundo da Lua'",
+                    valor: 47.99,
+                    imagem: require("../Imagens/Camiseta1.png"),
+                    quant: 0
                 },
                 {
                     id: 2,
-                    nome: "Camiseta 2",
-                    valor: 29.90,
+                    nome: "Camiseta 'I Love Space'",
+                    valor: 29.99,
                     imagem: require("../Imagens/Camiseta2.png")
                 },
                 {
                     id: 3,
-                    nome: "Camiseta 3",
-                    valor: 39.90,
+                    nome: "Camiseta 'Total Waste of Space'",
+                    valor: 33.99,
                     imagem: require("../Imagens/Camiseta3.png")
                 },
                 {
                     id: 4,
-                    nome: "Camiseta 4",
-                    valor: 49.90,
+                    nome: "Camiseta 'Pescando a lua'",
+                    valor: 49.99,
                     imagem: require("../Imagens/Camiseta4.png")
                 },
                 {
                     id: 5,
-                    nome: "Camiseta 5",
-                    valor: 59.90,
+                    nome: "Camiseta 'Balança na lua'",
+                    valor: 59.99,
                     imagem: require("../Imagens/Camiseta5.png")
                 },
                 {
                     id: 6,
-                    nome: "Camiseta 6",
-                    valor: 69.90,
+                    nome: "Camiseta 'Capinando a lua'",
+                    valor: 19.99,
                     imagem: require("../Imagens/Camiseta6.png")
                 },
                 {
                     id: 7,
-                    nome: "Camiseta 7",
-                    valor: 79.90,
-                    imagem: require("../Imagens/Camiseta1.png")
+                    nome: "Camiseta 'AstroUniverse'",
+                    valor: 79.99,
+                    imagem: require("../Imagens/Camiseta7.png")
                 },
                 {
                     id: 8,
-                    nome: "Camiseta 8",
-                    valor: 89.90,
-                    imagem: require("../Imagens/Camiseta1.png")
+                    nome: "Camiseta 'Laika'",
+                    valor: 99.99,
+                    imagem: require("../Imagens/Camiseta8.png")
                 },
                 {
                     id: 9,
-                    nome: "Camiseta 9",
-                    valor: 74.90,
-                    imagem: require("../Imagens/Camiseta1.png")
+                    nome: "Camiseta 'Em Chamas'",
+                    valor: 64.99,
+                    imagem: require("../Imagens/Camiseta9.png")
                 },        
             ]
         }
     }
-
+    
     render() {        
         const produtosFiltrados = this.state.produtos.filter(produto => {
             return produto.valor >= this.props.min && produto.valor <= this.props.max && produto.nome.includes(this.props.nome) 
@@ -91,7 +92,7 @@ class ListaDeProdutos extends React.Component {
                 return b.valor-a.valor
             }       
         })
-   
+
         return (
             <ContainerListaDeProdutos>
                 {produtosFiltrados.map(produtos => {
@@ -101,6 +102,7 @@ class ListaDeProdutos extends React.Component {
                 nome = {produtos.nome}
                 preco = {produtos.valor}
                 key = {produtos.id}
+                funcao = {this.props.precos}               
                 />
             )   
         })}

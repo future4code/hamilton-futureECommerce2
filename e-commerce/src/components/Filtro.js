@@ -62,7 +62,7 @@ class Filtro extends React.Component {
                 <button onClick= {this.onClickReset}>Resetar filtros</button>
 
                 <select value = {this.state.filtroSelect} onChange = {this.onChangeSelect}>
-                    <option value = "">Ordernar: ------</option>
+                    <option value = "">Ordenar: ------</option>
                     <option value = "decrescente">Ordenar: valor decrescente</option>
                     <option value = "crescente">Ordenar: valor crescente</option>
                 </select>

@@ -23,12 +23,9 @@ class Produtos extends React.Component {
         super(props)
     }
 
-    // adicionarAoCarrinho = (event) => {
-    //     const novaQuantidade = this.state.quantidadeDeProdutos + 1
-
-    //     this.setState ({quantidadeDeProdutos: novaQuantidade})
-    //     console.log(this.state.quantidadeDeProdutos)
-    // }
+    onClickSum = () => {
+        this.props.funcao(this.props.preco, this.props.nome)
+    }
 
     render() {
         return (
@@ -36,7 +33,7 @@ class Produtos extends React.Component {
                 <Imagem src = {this.props.imagem}/>
                 <p>{this.props.nome}</p>
                 <p>R${this.props.preco}</p>
-                <Button >Adicionar ao carrinho</Button>
+                <Button onClick = {this.onClickSum}>Adicionar ao carrinho</Button>
             </ContainerProdutos>
         )
     }
