@@ -73,7 +73,7 @@ class ListaDeProdutos extends React.Component {
                 {
                     id: 9,
                     nome: "Camiseta 9",
-                    valor: 99.90,
+                    valor: 74.90,
                     imagem: require("../Imagens/Camiseta1.png")
                 },        
             ]
@@ -82,9 +82,14 @@ class ListaDeProdutos extends React.Component {
 
     render() {        
         const produtosFiltrados = this.state.produtos.filter(produto => {
-            return produto.valor >= this.props.min && produto.valor <= this.props.max && produto.nome.includes(this.props.nome)
-            // Tenho que tentar entender o que eu fiz aqui, mas deu certo :P
+            return produto.valor >= this.props.min && produto.valor <= this.props.max && produto.nome.includes(this.props.nome) 
             // Agora também filtra pelo nome do produto
+        }).sort((a,b) => {
+            if(this.props.ordem === "crescente"){
+                return a.valor-b.valor
+            } else if (this.props.ordem === "decrescente"){
+                return b.valor-a.valor
+            }       
         })
    
         return (

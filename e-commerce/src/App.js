@@ -72,7 +72,6 @@ class App extends React.Component {
 
   alteraOrdem = (valorDoSelect) => {
     this.setState({filtroSelect: valorDoSelect})
-    console.log(valorDoSelect)
   }
 
   chamaDivCarrinho = () => {
@@ -92,7 +91,7 @@ class App extends React.Component {
 
         <Filtro funcao = {this.alteraValores} funcao2 = {this.alteraInput} funcao3 = {this.alteraOrdem}/>
 
-        <ListaDeProdutos nome = {this.state.valorInput} min = {this.state.valorMin} max = {this.state.valorMax}/>
+        <ListaDeProdutos ordem = {this.state.filtroSelect} nome = {this.state.valorInput} min = {this.state.valorMin} max = {this.state.valorMax}/>
       </div>
     );
   }
