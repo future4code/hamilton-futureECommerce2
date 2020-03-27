@@ -32,6 +32,7 @@ class Filtro extends React.Component {
     onClickValores = () => {
         this.props.funcao(this.state.valorMin, this.state.valorMax) // Parâmetros para a função alteraValores via props no componente pai
         this.props.funcao2(this.state.valorInput) // // Parâmetro para a função alteraInput via props no componente pai (app.js)
+        
     }
 
     // Faz o botão resetar os filtros
@@ -47,11 +48,7 @@ class Filtro extends React.Component {
 
     onChangeSelect = (event) => {
         this.setState({filtroSelect: event.target.value})
-    }
-
-    passaValorSelect = () => {
-        this.props.funcao3(this.state.filtroSelect)
-        console.log(this.state.filtroSelect)
+        this.props.funcao3(event.target.value)
     }
 
     render() {
@@ -64,7 +61,7 @@ class Filtro extends React.Component {
                 <button onClick= {this.onClickValores}>Filtrar</button>
                 <button onClick= {this.onClickReset}>Resetar filtros</button>
 
-                <select value = {this.state.filtroSelect} onChange = {(this.onChangeSelect, this.passaValorSelect)}>
+                <select value = {this.state.filtroSelect} onChange = {this.onChangeSelect}>
                     <option value = "">Ordernar: ------</option>
                     <option value = "decrescente">Ordenar: valor decrescente</option>
                     <option value = "crescente">Ordenar: valor crescente</option>
