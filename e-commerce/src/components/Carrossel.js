@@ -3,14 +3,17 @@ import styled from 'styled-components'
 
 const ContainerCarrossel = styled.div `
     border: 1px solid black;
-    height: 400px;
-    width: 1400px;
+    height: 500px;
+    max-width: 1400px;
+    min-width: 100%;
     margin: 10px auto;
     overflow: hidden;
+
 
     figure.slider-principal {
         position: relative;
         width: 500%;
+        height: 500%;
         margin: 0;
         left: 0;
         animation: 20s slider infinite;
@@ -18,7 +21,7 @@ const ContainerCarrossel = styled.div `
 
     figure.slider-principal img {
         width: 20%;
-        height: 75vh;
+        height: 60vh;
         float: left;
         background-size: cover;
     }
@@ -51,10 +54,11 @@ class Carrossel extends React.Component {
         return (
             <ContainerCarrossel>
                 <figure className="slider-principal">
+                    <Imagem src= {require("../Imagens/carrossel1.jpg")} />
+                    <Imagem src= {require("../Imagens/carrossel2.jpg")} />
+                    <Imagem src= {require("../Imagens/carrossel3.jpg")} />
                     <Imagem src= {require("../Imagens/Camiseta1.png")} />
                     <Imagem src= {require("../Imagens/Camiseta2.png")} />
-                    <Imagem src= {require("../Imagens/Camiseta3.png")} />
-                    <Imagem src= {require("../Imagens/Camiseta4.png")} />
                 </figure>
             </ContainerCarrossel>
         )

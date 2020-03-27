@@ -3,9 +3,13 @@ import styled from 'styled-components'
 
 const ContainerFiltro = styled.div `
     border: 1px solid black;
-    
-    width: 1400px;
+    max-width: 1400px;
+    min-width: 100%;
     margin: 0 auto 10px;
+    padding: 10px 0;
+    text-align: center;
+    background: white;
+
 `
 
 class Filtro extends React.Component {
@@ -54,7 +58,7 @@ class Filtro extends React.Component {
     render() {
         return (
             <ContainerFiltro>
-                <span>Filtro</span>
+                <span>Filtrar: </span>
                 <input type= "Number" onChange = {this.onChangeMin} placeholder = {"Valor mínimo"}/>
                 <input type= "Number" onChange = {this.onChangeMax} placeholder = {"Valor máximo"}/>
                 <input type= "text" onChange = {this.onChangeInput}/>
@@ -62,7 +66,7 @@ class Filtro extends React.Component {
                 <button onClick= {this.onClickReset}>Resetar filtros</button>
 
                 <select value = {this.state.filtroSelect} onChange = {this.onChangeSelect}>
-                    <option value = "">Ordernar: ------</option>
+                    <option value = "">Ordenar: ------</option>
                     <option value = "decrescente">Ordenar: valor decrescente</option>
                     <option value = "crescente">Ordenar: valor crescente</option>
                 </select>
